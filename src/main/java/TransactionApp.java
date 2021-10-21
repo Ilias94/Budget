@@ -18,30 +18,27 @@ public class TransactionApp {
             System.out.println("0. Zakończenie programu");
             String option = scanner.nextLine();
             switch (option) {
-                case "1":
+                case "1" -> {
                     Transaction newTransaction = creatTransaction();
                     transactionDAO.add(newTransaction);
                     System.out.println("transakcja dodana");
-                    break;
-                case "2":
+                }
+                case "2" -> {
                     Transaction updatedTransaction = updateTransaction();
                     transactionDAO.update(updatedTransaction);
                     System.out.println("transakcja zaktualizowana");
-                    break;
-                case "3":
+                }
+                case "3" -> {
                     int id = idToDeleteTransaction();
                     transactionDAO.deleteById(id);
                     System.out.println("transakcja o numerze id: " + id + " została usunięta");
-                    break;
-                case "4":
-                    transactionDAO.displayAllIncome();
-                    break;
-                case "5":
-                    transactionDAO.displayAllExpenses();
-                    break;
-                case "0":
+                }
+                case "4" -> transactionDAO.displayAllIncome();
+                case "5" -> transactionDAO.displayAllExpenses();
+                case "0" -> {
                     System.out.println("Koniec programu");
                     return;
+                }
             }
         }
     }
